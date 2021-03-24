@@ -20,33 +20,46 @@ describe("[Exercise 1] trimProperties", () => {
 });
 
 describe("[Exercise 2] trimPropertiesMutation", () => {
+  let input;
+  let expected;
+  let actual;
+
+  beforeEach(() => {
+    input = { foo: "  foo ", bar: "bar ", baz: " baz" };
+    expected = { foo: "foo", bar: "bar", baz: "baz" };
+    actual = utils.trimPropertiesMutation(input);
+  });
+
   it("[3] returns an object with the properties trimmed", () => {
-    // ✨ test away
+    expect(actual).toEqual(expected);
   });
   it("[4] the object returned is the exact same one we passed in", () => {
-    // ✨ test away
+    expect(actual).toBe(input);
   });
 });
 
 describe("[Exercise 3] findLargestInteger", () => {
   it("[5] returns the largest number in an array of numbers", () => {
-    // ✨ test away
+    const numbers = [1, 5, 2, 3];
+    expect(utils.findLargestInteger(numbers)).toEqual(5);
   });
 });
 
 describe("[Exercise 4] Counter", () => {
   let counter;
   beforeEach(() => {
-    counter = new utils.Counter(3); // each test must start with a fresh couter
+    counter = new utils.Counter(3); // each test must start with a fresh counter
   });
   it("[6] the FIRST CALL of counter.countDown returns the initial count", () => {
-    // ✨ test away
+    expect(counter.countDown()).toEqual(3);
   });
   it("[7] the SECOND CALL of counter.countDown returns the initial count minus one", () => {
-    // ✨ test away
+    counter.countDown();
+    expect(counter.countDown()).toEqual(2);
   });
   it("[8] the count eventually reaches zero but does not go below zero", () => {
-    // ✨ test away
+    for (let i = 1; i < 5; i++) counter.countDown();
+    expect(counter.countDown()).toEqual(0);
   });
 });
 
