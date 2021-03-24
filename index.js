@@ -88,8 +88,8 @@ class Seasons {
    * seasons.next() // returns "summer"
    */
   next() {
-    const seasons = ["spring", "summer", "fall", "winter", "spring"]
-    const index = seasons.findIndex(season => season === this.season)
+    const seasons = ["spring", "summer", "fall", "winter", "spring"];
+    const index = seasons.findIndex((season) => season === this.season);
     this.season = seasons[index + 1];
     return this.season;
   }
@@ -106,6 +106,8 @@ class Car {
     this.odometer = 0; // car initilizes with zero miles
     this.tank = tankSize; // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
+    this.fuel = tankSize;
+    this.mpg = mpg;
   }
 
   /**
@@ -122,7 +124,10 @@ class Car {
    * focus.drive(200) // returns 600 (ran out of gas after 100 miles)
    */
   drive(distance) {
-    // ✨ implement
+    const distanceDriven = Math.min(distance, this.mpg * this.fuel);
+    this.odometer += distanceDriven;
+    this.fuel = Math.max(this.fuel - distanceDriven / this.mpg, 0);
+    return this.odometer;
   }
 
   /**
@@ -137,7 +142,7 @@ class Car {
    * focus.refuel(99) // returns 600 (tank only holds 20)
    */
   refuel(gallons) {
-    // ✨ implement
+    this.fuel = Math.min(this.fuel + gallons, this.tank)
   }
 }
 
