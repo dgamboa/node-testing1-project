@@ -142,7 +142,7 @@ class Car {
    * focus.refuel(99) // returns 600 (tank only holds 20)
    */
   refuel(gallons) {
-    this.fuel = Math.min(this.fuel + gallons, this.tank)
+    this.fuel = Math.min(this.fuel + gallons, this.tank);
   }
 }
 
@@ -166,7 +166,17 @@ class Car {
  * })
  */
 function isEvenNumberAsync(number) {
-  // ✨ implement
+  if (typeof number != 'number') {
+    return "number must be a number";
+  } else if (Number.isNaN(number)) {
+    return "number must be a number";
+  }
+
+  if (number % 2 === 0) {
+    return Promise.resolve(true);
+  } else {
+    return Promise.resolve(false);
+  }
 }
 
 module.exports = {
