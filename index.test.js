@@ -58,33 +58,34 @@ describe("[Exercise 4] Counter", () => {
     expect(counter.countDown()).toEqual(2);
   });
   it("[8] the count eventually reaches zero but does not go below zero", () => {
-    for (let i = 1; i < 5; i++) counter.countDown();
+    for (let i = 1; i < 6; i++) counter.countDown();
     expect(counter.countDown()).toEqual(0);
   });
 });
 
 describe("[Exercise 5] Seasons", () => {
   let seasons;
-  beforeEach(() => {
+  beforeAll(() => {
     seasons = new utils.Seasons(); // each test must start with fresh seasons
   });
   it('[9] the FIRST call of seasons.next returns "summer"', () => {
-    // ✨ test away
+    expect(seasons.next()).toEqual("summer");
   });
   it('[10] the SECOND call of seasons.next returns "fall"', () => {
-    // ✨ test away
+    expect(seasons.next()).toEqual("fall");
   });
   it('[11] the THIRD call of seasons.next returns "winter"', () => {
-    // ✨ test away
+    expect(seasons.next()).toEqual("winter");
   });
   it('[12] the FOURTH call of seasons.next returns "spring"', () => {
-    // ✨ test away
+    expect(seasons.next()).toEqual("spring");
   });
   it('[13] the FIFTH call of seasons.next returns again "summer"', () => {
-    // ✨ test away
+    expect(seasons.next()).toEqual("summer");
   });
   it('[14] the 40th call of seasons.next returns "spring"', () => {
-    // ✨ test away
+    for (let i = 5; i < 39; i++) seasons.next();
+    expect(seasons.next()).toEqual("spring");
   });
 });
 

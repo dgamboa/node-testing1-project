@@ -72,7 +72,7 @@ class Seasons {
    * [Exercise 5A] Seasons creates a seasons object
    */
   constructor() {
-    // ✨ initialize whatever properties are needed
+    this.season = "spring";
   }
 
   /**
@@ -88,7 +88,10 @@ class Seasons {
    * seasons.next() // returns "summer"
    */
   next() {
-    // ✨ implement
+    const seasons = ["spring", "summer", "fall", "winter", "spring"]
+    const index = seasons.findIndex(season => season === this.season)
+    this.season = seasons[index + 1];
+    return this.season;
   }
 }
 
